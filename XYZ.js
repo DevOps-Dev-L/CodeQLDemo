@@ -41,7 +41,7 @@ $(document).ready(function () {
         var i = 0;
         for (var p in allThoughts) {
             var person = $("<span/>").html(allThoughts[p].Person).text();
-            var message = $("<span/>").html(allThoughts[p].Message).text();
+            var message = allThoughts[p].Message;
             if (allThoughts[p].Person == $("#usr").val())
                 $("#postTemplate").clone().attr('id', 'ptc' + i).attr('class', 'panel panel-danger').appendTo("#thoughts");
             else
@@ -50,7 +50,7 @@ $(document).ready(function () {
                 $('#ptc' + i).children("#person").html(person + " &nbsp;&nbsp;&nbsp;&nbsp;(" + allThoughts[p].PostTime.substring(0, 16) + ")");
             else
                 $('#ptc' + i).children("#person").html(person + " &nbsp;&nbsp;&nbsp;&nbsp;(" + allThoughts[p].FormattedDate + ")");
-            $('#ptc' + i).children("#message").html(message);
+            $('#ptc' + i).children("#message").text(message);
             i++;
         }
     });
